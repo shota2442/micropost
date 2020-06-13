@@ -9,10 +9,15 @@
         <div>
           <p class="mb-0"><%= micropost.content %></p>
         </div>
-        <div>
+        <div class="btn-toolbar" role="toolbar" aria-label="ボタングループ">
+          <div class="btn-group mr-2" role="group" aria-label="第一グループ">
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
+          </div>
+          <div class="btn-group mr-2" role="group" aria-label="第二グループ">
+          <%= render 'favorites/favorite_button', micropost: micropost %>
+          </div>
         </div>
       </div>
     </li>
